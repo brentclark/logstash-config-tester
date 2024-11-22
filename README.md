@@ -14,3 +14,9 @@ In this project, the input comes from `stdin` and goes to `stdout`. The only par
 ## Usage
 Simply start this project using `docker-compose run logstash`. 
 Then, you only need to paste your log line to see how it is parsed by your filters.
+
+In one terminal run:
+docker compose -f docker-compose.yml -p logstash-config-tester up
+
+In a second terminal to test logstash is working:
+echo "Hello world" | socat EXEC:"docker attach logstash-config-tester-logstash-1",pty STDIN
